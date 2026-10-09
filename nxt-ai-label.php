@@ -3,7 +3,7 @@
  * Plugin Name: NXT AI Label
  * Plugin URI: https://nextab.de
  * Description: Burns official EU AI labels into selected media images, thumbnails and EWWW WebP files.
- * Version: 1.0.0
+ * Version: 1.1.1
  * Author: nexTab
  * Author URI: https://nextab.de
  * Requires at least: 6.1
@@ -16,13 +16,14 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('NXT_AI_LABEL_VERSION', '1.0.0');
+define('NXT_AI_LABEL_VERSION', '1.1.1');
 define('NXT_AI_LABEL_DIR', plugin_dir_path(__FILE__));
 define('NXT_AI_LABEL_URL', plugin_dir_url(__FILE__));
 define('NXT_AI_LABEL_FILE', __FILE__);
 
 require_once NXT_AI_LABEL_DIR . 'inc/class-labels.php';
 require_once NXT_AI_LABEL_DIR . 'inc/class-detector.php';
+require_once NXT_AI_LABEL_DIR . 'inc/class-meta.php';
 require_once NXT_AI_LABEL_DIR . 'inc/class-processor.php';
 require_once NXT_AI_LABEL_DIR . 'inc/class-auto.php';
 require_once NXT_AI_LABEL_DIR . 'inc/class-media-fields.php';

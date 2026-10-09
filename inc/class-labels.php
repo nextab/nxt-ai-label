@@ -93,6 +93,11 @@ final class NXT_AI_Label_Labels {
 		return isset(self::all()[$slug]);
 	}
 
+	public static function name(string $slug): string {
+		$all = self::all();
+		return $all[$slug]['label'] ?? $slug;
+	}
+
 	public static function path(string $slug): ?string {
 		$all = self::all();
 		if (!isset($all[$slug])) {

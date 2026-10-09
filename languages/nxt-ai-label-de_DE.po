@@ -328,3 +328,160 @@ msgstr "NXT AI Label"
 #: nxt-ai-label.php
 msgid "Burns official EU AI labels into selected media images, thumbnails and EWWW WebP files."
 msgstr "Brennt offizielle EU-KI-Kennzeichen in ausgewählte Mediathek-Bilder, Vorschaubilder und EWWW-WebP-Dateien."
+
+msgid "Created with AI."
+msgstr "Mit KI erzeugt."
+
+msgid "Edited with AI."
+msgstr "Mit KI bearbeitet."
+
+msgid "Only images you mark are changed. The label is burned into the file, and the file metadata records whether it was created or edited with AI."
+msgstr "Nur Bilder, die du kennzeichnest, werden verändert. Das Label wird in die Datei gebrannt, und die Metadaten halten fest, ob das Bild mit KI erzeugt oder bearbeitet wurde."
+
+msgid "Default label"
+msgstr "Standard-Label"
+
+msgid "These values are preselected when you open an image, and they are used for the batch below. You do not have to set the dropdowns again for every file."
+msgstr "Diese Werte sind vorausgewählt, wenn du ein Bild öffnest, und gelten für die Stapelverarbeitung unten. Die Dropdowns musst du nicht bei jeder Datei neu setzen."
+
+msgid "Apply the default label when the file declares an AI origin"
+msgstr "Standard-Label setzen, wenn die Datei eine KI-Herkunft meldet"
+
+msgid "Looks for trainedAlgorithmicMedia or compositeWithTrainedAlgorithmicMedia, including the original file before WordPress scaling. A label you remove stays removed. Generators without that metadata can call nxt_ai_label_mark( $attachment_id ). The filter nxt_ai_label_attachment_is_generated runs only while this box is checked."
+msgstr "Sucht nach trainedAlgorithmicMedia oder compositeWithTrainedAlgorithmicMedia, auch in der Originaldatei vor der WordPress-Skalierung. Eine entfernte Kennzeichnung bleibt entfernt. Generatoren ohne diese Metadaten können nxt_ai_label_mark( $attachment_id ) aufrufen. Der Filter nxt_ai_label_attachment_is_generated läuft nur, solange diese Box aktiv ist."
+
+msgid "Save default label"
+msgstr "Standard-Label speichern"
+
+msgid "Images that should have a label"
+msgstr "Bilder, die ein Label brauchen"
+
+#, php-format
+msgid "Batch uses the saved default: %1$s, %2$s, %3$s. Each file also gets IPTC/XMP metadata: Created with AI, or Edited with AI."
+msgstr "Die Stapelverarbeitung nutzt das gespeicherte Standard-Label: %1$s, %2$s, %3$s. Jede Datei bekommt zusätzlich IPTC/XMP-Metadaten: Mit KI erzeugt, oder Mit KI bearbeitet."
+
+msgid "Check images again"
+msgstr "Bereits geprüfte Bilder erneut prüfen"
+
+msgid "Scan library"
+msgstr "Mediathek prüfen"
+
+msgid "Finds images with an AI origin and no label. It does not write the label. WP-CLI wp nxt-ai-label detect still writes it."
+msgstr "Findet Bilder mit KI-Herkunft und ohne Label. Das Label wird dabei nicht geschrieben. WP-CLI wp nxt-ai-label detect schreibt es weiterhin."
+
+msgid "Nothing open. After a scan, images with an AI origin and no label show up here."
+msgstr "Nichts offen. Nach dem Scan stehen hier Bilder mit KI-Herkunft und ohne Label."
+
+msgid "image should get a label."
+msgid_plural "images should get a label."
+msgstr[0] "Bild sollte ein Label bekommen."
+msgstr[1] "Bilder sollten ein Label bekommen."
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Detection"
+msgstr "Erkennung"
+
+msgid "AI-generated"
+msgstr "KI-erzeugt"
+
+msgid "Label selected"
+msgstr "Ausgewählte labeln"
+
+msgid "Label all detected images"
+msgstr "Alle erkannten Bilder labeln"
+
+msgid "Previous"
+msgstr "Zurück"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "Labels already applied"
+msgstr "Bereits gesetzte Labels"
+
+msgid "Rewrites labels that are already applied, using the unmarked backup, and writes the AI metadata into those files. It does not add new labels. WP-CLI: wp nxt-ai-label regenerate"
+msgstr "Schreibt bereits gesetzte Labels aus dem unmarkierten Backup neu und schreibt die KI-Metadaten in diese Dateien. Neue Labels kommen nicht dazu. WP-CLI: wp nxt-ai-label regenerate"
+
+#, php-format
+msgid "Checked %1$d images. %2$d should get a label. Nothing was written yet."
+msgstr "%1$d Bilder geprüft. %2$d sollten ein Label bekommen. Geschrieben wurde noch nichts."
+
+msgid "Select at least one image."
+msgstr "Wähle mindestens ein Bild."
+
+msgid "Default label saved."
+msgstr "Standard-Label gespeichert."
+
+msgid "Set label"
+msgstr "Label setzen"
+
+msgid "Update label"
+msgstr "Label aktualisieren"
+
+msgid "AI?"
+msgstr "KI?"
+
+msgid "Set"
+msgstr "Gesetzt"
+
+msgid "Not set"
+msgstr "Nicht gesetzt"
+
+#, php-format
+msgid "Label is set: %1$s. You do not need to set it again. File metadata: %2$s"
+msgstr "Label ist gesetzt: %1$s. Du musst es nicht noch einmal setzen. Datei-Metadaten: %2$s"
+
+#, php-format
+msgid "Label is set: %s. You do not need to set it again. Regenerate it once so the file metadata is written."
+msgstr "Label ist gesetzt: %s. Du musst es nicht noch einmal setzen. Einmal neu erzeugen, damit die Datei-Metadaten geschrieben werden."
+
+msgid "No label. You removed it, so it stays off."
+msgstr "Kein Label. Du hast es entfernt, deshalb bleibt es aus."
+
+msgid "This image is AI-generated. Set the label now?"
+msgstr "Dieses Bild ist KI-erzeugt. Jetzt Label setzen?"
+
+msgid "This image was edited with AI. Set the label now?"
+msgstr "Dieses Bild ist mit KI bearbeitet. Jetzt Label setzen?"
+
+msgid "No label is set."
+msgstr "Kein Label gesetzt."
+
+msgid "The dropdowns are your default. Nothing is written until you set the label."
+msgstr "Die Dropdowns zeigen nur dein Standard-Label. Auf dem Bild steht nichts, bis du das Label setzt."
+
+msgid "Preview only. Not saved on the image yet."
+msgstr "Nur Vorschau. Noch nicht auf dem Bild gespeichert."
+
+msgid "Change label, position or size"
+msgstr "Label, Position oder Größe ändern"
+
+#, php-format
+msgid "Checked %1$d images. Found %2$d so far."
+msgstr "%1$d Bilder geprüft. %2$d bisher gefunden."
+
+#, php-format
+msgid "Labeled %1$d images so far. Skipped: %2$d."
+msgstr "%1$d Bilder bisher gelabelt. Übersprungen: %2$d."
+
+msgid "Continue"
+msgstr "Weiter"
+
+msgid "Scanning the library."
+msgstr "Mediathek wird geprüft."
+
+msgid "Labeling images."
+msgstr "Bilder werden gelabelt."
+
+#, php-format
+msgid "Checked %1$d of %2$d. Found %3$d."
+msgstr "%1$d von %2$d geprüft. %3$d gefunden."
+
+#, php-format
+msgid "Labeled %1$d of %2$d. Skipped %3$d."
+msgstr "%1$d von %2$d gelabelt. %3$d übersprungen."
+
+msgid "The batch stopped. Start it again to continue with what is left."
+msgstr "Die Stapelverarbeitung ist stehen geblieben. Nochmal starten, dann geht es mit dem Rest weiter."

@@ -107,7 +107,7 @@ final class NXT_AI_Label_Processor {
 			if ($raster_public === null || !is_readable($raster_public)) {
 				continue;
 			}
-			self::write_webp_from_raster($raster_public, $webp_public);
+			self::write_webp_from_raster($raster_public, $webp_public, $settings['slug']);
 		}
 	}
 
@@ -307,6 +307,8 @@ final class NXT_AI_Label_Processor {
 			delete_post_meta($attachment_id, '_nxt_ai_label_slug');
 			delete_post_meta($attachment_id, '_nxt_ai_label_position');
 			delete_post_meta($attachment_id, '_nxt_ai_label_scale');
+			delete_post_meta($attachment_id, '_nxt_ai_label_detected');
+			delete_post_meta($attachment_id, '_nxt_ai_label_auto');
 			self::delete_backup($attachment_id);
 		}
 
@@ -500,7 +502,7 @@ final class NXT_AI_Label_Processor {
 			$raster_relative = preg_replace('/\.webp$/i', '', $relative);
 			$raster_public = is_string($raster_relative) ? self::public_path($raster_relative) : null;
 			if ($raster_public !== null && is_readable($raster_public)) {
-				self::write_webp_from_raster($raster_public, $public);
+				self::write_webp_from_raster($raster_public, $public, $settings['slug']);
 			}
 			return;
 		}
@@ -582,7 +584,12 @@ final class NXT_AI_Label_Processor {
 		imagesavealpha($image, true);
 		imagecopy($image, $scaled, $x, $y, 0, 0, $target_w, $target_h);
 
-		return self::save_image($image, $path, $mime);
+		$saved = self::save_image($image, $path, $mime);
+		if ($saved) {
+			NXT_AI_Label_Meta::embed($path, (string) $settings['slug']);
+		}
+
+		return $saved;
 	}
 
 	/**
@@ -626,7 +633,7 @@ final class NXT_AI_Label_Processor {
 		return (bool) $result;
 	}
 
-	private static function write_webp_from_raster(string $raster_path, string $webp_path): bool {
+	private static function write_webp_from_raster(string $raster_path, string $webp_path, string $slug): bool {
 		if (!function_exists('imagewebp') || !is_readable($raster_path)) {
 			return false;
 		}
@@ -646,7 +653,12 @@ final class NXT_AI_Label_Processor {
 			wp_mkdir_p($dir);
 		}
 
-		return (bool) imagewebp($image, $webp_path, self::webp_quality());
+		$saved = (bool) imagewebp($image, $webp_path, self::webp_quality());
+		if ($saved) {
+			NXT_AI_Label_Meta::embed($webp_path, $slug);
+		}
+
+		return $saved;
 	}
 
 	private static function webp_quality(): int {
